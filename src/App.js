@@ -1,21 +1,30 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { connect } from 'react-redux';
 import './App.css';
 
+
 class App extends Component {
+
+  componentDidMount() {
+   this.props.dispatch({type:'MERGE'});
+  }
+
   render() {
+
+    console.log('Haide sa vedem care este stateul');
+    console.log(this.props);
+
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+        <h1>Easy Competition APP</h1>
+        <h2>This is the easy competition app the front end side</h2>
       </div>
     );
   }
 }
 
-export default App;
+function mapStateToProps(state) {
+  return state;
+}
+
+export default connect(mapStateToProps)(App);
